@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -27,10 +29,12 @@ public class TrainingRequest {
 	
 	@ManyToOne
 	@JoinColumn(name = "trainee_id")
+	@JsonIgnore
 	private User traineeId;
 	
 	@ManyToOne
 	@JoinColumn(name = "trainer_id")
+	@JsonIgnore
 	private User trainerId;
 	
 }
