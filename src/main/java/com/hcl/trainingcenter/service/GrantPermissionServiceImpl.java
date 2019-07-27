@@ -32,7 +32,10 @@ public class GrantPermissionServiceImpl {
 	   Optional<TrainingRequest> trainingRequest = trainingRequestRepository.findById(grantPermissionDto.getRegistrationId());
 	   
 	   if(trainingRequest.isPresent()) {
-		   trainingRequest.get().setStatus(grantPermissionDto.getStatus());
+		   TrainingRequest tainReq = trainingRequest.get();
+		   tainReq.setStatus(grantPermissionDto.getStatus());
+		   tainReq.setCourseDate(grantPermissionDto.getCourseDate());
+		   trainingRequestRepository.save(tainReq);
 		   
 	   }
 	   response.setData(trainingRequest);

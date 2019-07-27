@@ -36,7 +36,7 @@ public class LoginServiceImpl implements LoginService {
 			responseData.setData(trainingList);
 			responseData.setMessage("Trainee Login Succesfully..");
 		} else if (user.getUserType().equalsIgnoreCase("trainer")) {
-			List<TrainingRequest> trainingList = trainingRequestRepository.findByTrainerIdAndStatus(user, "pending");
+			List<TrainingRequest> trainingList = trainingRequestRepository.findByTrainerIdAndStatus(user, "Pending");
 			if (trainingList.isEmpty()) {
 				responseData.setData("There is no trainee request raise");
 				responseData.setMessage("Trainer Login Succesfully..");
