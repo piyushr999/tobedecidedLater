@@ -19,10 +19,10 @@ import com.hcl.trainingcenter.repository.UserRepository;
 public class GrantPermissionServiceImpl {
 	
 	@Autowired
-	TrainingRequestRepository trainingRequestRepository;
+	public TrainingRequestRepository trainingRequestRepository;
 	
 	@Autowired
-	UserRepository userRepository;
+	public UserRepository userRepository;
 	
 	
 	
