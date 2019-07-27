@@ -24,6 +24,8 @@ public class GrantPermissionServiceImpl {
 	@Autowired
 	UserRepository userRepository;
 	
+	
+	
 	public ResponseData findByUserId(GrantPermissionDto grantPermissionDto)
 	{
 	   ResponseData response =new ResponseData();

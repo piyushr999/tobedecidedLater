@@ -8,4 +8,5 @@ import com.hcl.trainingcenter.entity.User;
 public interface GrantPermissionService {
 
 	
+	
 }
