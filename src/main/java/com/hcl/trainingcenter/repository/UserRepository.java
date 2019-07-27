@@ -15,4 +15,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	
 	@Query(value = "SELECT technology from User WHERE userType = 'Trainer'", nativeQuery = true)
 	public List<Object[]> getAllTrainers();
+
+	public User findByUserNameAndPassword(String userName, String password);
 }
