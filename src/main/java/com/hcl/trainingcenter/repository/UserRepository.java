@@ -8,4 +8,5 @@ import com.hcl.trainingcenter.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	public User findByTechnologyAndUserType(String technology, String userType);
 }

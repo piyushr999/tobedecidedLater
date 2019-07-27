@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class TrainingRequestDto {
 
-	private Long userId;
+	private Long traineeUserId;
 
 	private String course;
 
