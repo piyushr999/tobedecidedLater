@@ -1,5 +1,5 @@
 package com.hcl.trainingcenter.controller;
 
-public class GrantPermisonController {
+public class GrantPermissionController {
 
 }
