@@ -11,8 +11,7 @@ public class LoginController {
 
 	public ResponseEntity<Object> loginUser() {
 
-		
 		return new ResponseEntity<>("", HttpStatus.OK);
-		 
+
 	}
 }
