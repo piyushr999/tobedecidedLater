@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hcl.trainingcenter.dto.GrantPermissionDto;
 import com.hcl.trainingcenter.dto.TrainingRequestDto;
 import com.hcl.trainingcenter.service.GrantPermissionServiceImpl;
 
@@ -20,10 +21,10 @@ public class GrantPermissionController {
 	GrantPermissionServiceImpl grantPermissionServiceImpl;
 	
 	@PostMapping("/trainer/approval")
-	public ResponseEntity<Object> approveStatus(@RequestBody TrainingRequestDto trainingRequestDto)
+	public ResponseEntity<Object> approveStatus(@RequestBody GrantPermissionDto grantPermissionDto)
 	{
 		
-		return new ResponseEntity<>(grantPermissionServiceImpl.findByUserId(trainingRequestDto), HttpStatus.OK);
+		return new ResponseEntity<>(grantPermissionServiceImpl.findByUserId(grantPermissionDto), HttpStatus.OK);
 	}
 
 }

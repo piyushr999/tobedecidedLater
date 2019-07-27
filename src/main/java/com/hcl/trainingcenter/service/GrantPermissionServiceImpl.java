@@ -4,9 +4,12 @@ import java.util.Optional;
 
 import org.apache.http.protocol.ResponseDate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.hcl.trainingcenter.dto.GrantPermissionDto;
+import com.hcl.trainingcenter.dto.ResponseData;
 import com.hcl.trainingcenter.dto.TrainingRequestDto;
 import com.hcl.trainingcenter.entity.TrainingRequest;
 import com.hcl.trainingcenter.repository.TrainingRequestRepository;
@@ -21,21 +24,18 @@ public class GrantPermissionServiceImpl {
 	@Autowired
 	UserRepository userRepository;
 	
-	public ResponseData findByUserId(TrainingRequestDto trainingRequestDto)
+	public ResponseData findByUserId(GrantPermissionDto grantPermissionDto)
 	{
-	
-		
-	   ResponseDate response =new ResponseDate();
-	   Optional<TrainingRequest> trainingRequest = trainingRequestRepository.findById(trainingRequestDto.getRegistrationId());
+	   ResponseData response =new ResponseData();
+	   Optional<TrainingRequest> trainingRequest = trainingRequestRepository.findById(grantPermissionDto.getRegistrationId());
 	   
-	   if(trainingRequest.isPresent())
-	   {
-		   trainingRequest.get().setStatus(trainingRequestDto.getStatus());
-		   return 
-		   
+	   if(trainingRequest.isPresent()) {
+		   trainingRequest.get().setStatus(grantPermissionDto.getStatus());
 		   
 	   }
-	   
+	   response.setData(trainingRequest);
+	   response.setHttpStatus(HttpStatus.OK);
+	   response.setMessage("Your Request has been successfully "+grantPermissionDto.getStatus());
 	   
 	   return response;
 	}
