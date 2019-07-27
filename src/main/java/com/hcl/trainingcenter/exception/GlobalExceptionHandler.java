@@ -35,12 +35,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	        ResponseData error = new ResponseData(ex.getMessage(), HttpStatus.BAD_REQUEST, null);
 	        return new ResponseEntity<>(error, error.getHttpStatus());
 	    }
-	
-	 	@ExceptionHandler(BookMyFlightException.class)
-	    public final ResponseEntity<Object> handleAllExceptions(BookMyFlightException ex, WebRequest request) {
-	 		 List<String> details = new ArrayList<>();
-		     details.add(ex.getMessage());
-		     ResponseData error = new ResponseData(ex.getMessage(), HttpStatus.BAD_REQUEST, null);
-		     return new ResponseEntity<>(error, error.getHttpStatus());
-	    }
 }
