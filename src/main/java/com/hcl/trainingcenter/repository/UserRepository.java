@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	
 	public User findByTechnologyAndUserType(String technology, String userType);
 	
-	@Query(value = "SELECT technology from User WHERE userType = 'Trainer'", nativeQuery = true)
+	@Query(value = "SELECT technology from User WHERE user_type = 'Trainer'", nativeQuery = true)
 	public List<Object[]> getAllTrainers();
 
 	public User findByUserNameAndPassword(String userName, String password);

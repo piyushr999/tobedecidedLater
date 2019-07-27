@@ -35,11 +35,13 @@ public class TrainingRequestServiceImpl implements TrainingRequestService {
 			User trainerUser = userRepository.findByTechnologyAndUserType(trainingRequestDto.getCourse(), "Trainer");
 			if (ObjectUtils.isEmpty(trainerUser)) {
 
+				List<String> trainerCourse = new ArrayList<String>();
 				response.setMessage("Trainer is not availabe for this course");
 				response.setHttpStatus(HttpStatus.NOT_FOUND);
 				List<Object[]> trainerAvailable = userRepository.getAllTrainers();
-				response.setData(trainerAvailable);
-
+				trainerCourse.add("Only Following Course Trainer is Available :");
+				trainerAvailable.stream().forEach(a -> trainerCourse.add(a[0].toString()));
+				response.setData(trainerCourse);
 				return response;
 			}
 			TrainingRequest trainingRequest = new TrainingRequest();
