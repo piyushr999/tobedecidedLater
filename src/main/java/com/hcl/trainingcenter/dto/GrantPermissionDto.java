@@ -14,7 +14,7 @@ public class GrantPermissionDto {
 	
 	private String courseDate;
 	
-	private User traineeId;
+	private Long traineeId;
 	
 	
 }
